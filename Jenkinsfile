@@ -10,8 +10,8 @@ pipeline {
             steps {
                 dir("infra") {
                    sh 'terraform init'
-                   sh 'terraform plan -var="cluster_name=$cluster_name ibmcloud_api_key=$api_key"'
-                   sh 'terraform apply -auto-approve -var="cluster_name=$cluster_name ibmcloud_api_key=$api_key"'
+                   sh 'terraform plan -var="cluster_name=$cluster_name" -var="ibmcloud_api_key=$api_key"'
+                   sh 'terraform apply -auto-approve -var="cluster_name=$cluster_name" -var="ibmcloud_api_key=$api_key"'
                 }
             }
         }
