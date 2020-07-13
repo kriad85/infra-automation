@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Configure Cluster') {
             steps {
-                sh 'ibmcloud login --apikey $api_key -r $region
+                sh 'ibmcloud login --apikey $api_key -r $region'
                 sh 'ibmcloud ks cluster config --cluster $cluster_name'
             }
         }
