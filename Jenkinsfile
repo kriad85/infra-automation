@@ -23,7 +23,7 @@ pipeline {
                 node start.js
                 cd ..
                 chmod +x deploy.sh
-                ./deploy.sh
+                sh './deploy.sh'
             }
         }
     }
