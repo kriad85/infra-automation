@@ -7,9 +7,9 @@ pipeline {
         stage('Generate Infra') {
             steps {
                 dir("infra") {
-                   sh 'terraform init'
-                   sh 'terraform plan -var="cluster_name=${params.cluster_name}"'
-                   sh 'terraform apply -auto-approve -var="cluster_name=${params.cluster_name}"'
+                   sh 'sudo terraform init'
+                   sh 'sudo terraform plan -var="cluster_name=${params.cluster_name}"'
+                   sh 'sudo terraform apply -auto-approve -var="cluster_name=${params.cluster_name}"'
                 }
             }
         }
