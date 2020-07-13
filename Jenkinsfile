@@ -9,18 +9,22 @@ pipeline {
                 dir("infra") {
                    sh 'terraform init'
                    sh 'terraform plan -var="cluster_name=$cluster_name"'
-                   sh 'terraform apply -auto-approve -var="cluster_name=${params.cluster_name}"'
+                   sh 'terraform apply -auto-approve -var="cluster_name=$cluster_name"'
                 }
             }
         }
         stage('Configure Cluster') {
             steps {
-                sh 'ibmcloud ks cluster config --cluster ${params.cluster_name}'
+                sh 'ibmcloud ks cluster config --cluster $cluster_name'
             }
         }
         stage('Deploy App') {
             steps {
-                sh 'node app/src/start.js'
+                dir("app") {
+                   sh 'node src/start.js'
+                   sh 'chmod +x deploy.sh'
+                   sh './deploy.sh'
+                }
             }
         }
     }
