@@ -8,13 +8,13 @@ pipeline {
             steps {
                 cd infra
                 sh 'terraform init'
-                sh 'terraform plan -var="cluster_name=mycluster"'
-                sh 'terraform apply -auto-approve -var="cluster_name=mycluster"'
+                sh 'terraform plan -var="cluster_name=${params.cluster_name}"'
+                sh 'terraform apply -auto-approve -var="cluster_name=${params.cluster_name}"'
             }
         }
         stage('Configure Cluster') {
             steps {
-                sh 'ibmcloud ks cluster config --cluster mycluster'
+                sh 'ibmcloud ks cluster config --cluster ${params.cluster_name}'
             }
         }
         stage('Deploy App') {
