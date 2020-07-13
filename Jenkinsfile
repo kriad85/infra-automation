@@ -14,12 +14,12 @@ pipeline {
         }
         stage('Configure Cluster') {
             steps {
-                ibmcloud ks cluster config --cluster ${params.cluster_name}
+                sh 'ibmcloud ks cluster config --cluster mycluster'
             }
         }
         stage('Deploy App') {
             steps {
-                node app/src/start.js
+                sh 'node app/src/start.js'
             }
         }
     }
