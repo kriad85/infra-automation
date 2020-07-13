@@ -19,9 +19,11 @@ pipeline {
         }
         stage('Deploy App') {
             steps {
-                cd app/src;
+                cd app/src
                 node start.js
                 cd ..
+                chmod +x deploy.sh
+                ./deploy.sh
             }
         }
     }
