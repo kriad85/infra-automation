@@ -22,8 +22,6 @@ pipeline {
                 cd app/src;
                 node start.js
                 cd ..
-                chmod +x deploy.sh
-                sh './deploy.sh'
             }
         }
     }
