@@ -7,9 +7,8 @@ pipeline {
         stage('Generate Infra') {
             steps {
                 dir("infra") {
-                   echo "${params.cluster_name}"
                    sh 'terraform init'
-                   sh 'terraform plan -var="cluster_name="'+"${params.cluster_name"+'"'
+                   sh 'terraform plan -var="cluster_name=""${params.cluster_name}"'
                    sh 'terraform apply -auto-approve -var="cluster_name=${params.cluster_name}"'
                 }
             }
