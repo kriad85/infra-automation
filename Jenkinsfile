@@ -22,7 +22,7 @@ pipeline {
                 cd app/src;
                 node start.js;
                 cd ..;
-                for filename in /deployment/output/*.yml; do
+                for filename in deployment/output/*; do
                    kubectl apply -f $filename
                 done
             }
