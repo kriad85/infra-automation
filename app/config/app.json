@@ -1,0 +1,28 @@
+[
+	{
+		"appA":{
+			"deployment_name":"appa-deployment",
+			"app_name": "appa",
+			"replica_number": "1",
+			"image_name": "de.icr.io/demo_ns/servicea",
+			"build_number": "1",
+                        "container_port": "8080",
+                        "service_name": "appa-service",
+                        "service_type": "LoadBalancer",
+                        "service_port": "8080",
+                        "service_protocol": "TCP"
+		},
+		"appB":{
+			"deployment_name":"appb-deployment",
+			"app_name": "appb",
+			"replica_number": "1",
+			"image_name": "de.icr.io/demo_ns/serviceb",
+			"build_number": "1",
+                        "container_port": "8080",
+                        "service_name": "appb-service",
+                        "service_type": "LoadBalancer",
+                        "service_port": "8080",
+                        "service_protocol": "TCP"
+		}
+	}
+]

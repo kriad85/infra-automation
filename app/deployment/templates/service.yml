@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: @service_name@
+  labels:
+    app: @app_name@
+spec:
+  type: @service_type@
+  ports:
+  - port: @service_port@
+    protocol: @service_protocol@
+  selector:
+    app: @app_name@

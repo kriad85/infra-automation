@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appb-deployment
+  labels:
+    app: appb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appb
+  template:
+    metadata:
+      labels:
+        app: appb
+    spec:
+      containers:
+      - name: appb
+        image: de.icr.io/demo_ns/serviceb:1
+        ports:
+        - containerPort: 8080
+

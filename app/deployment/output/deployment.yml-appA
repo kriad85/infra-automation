@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appa-deployment
+  labels:
+    app: appa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appa
+  template:
+    metadata:
+      labels:
+        app: appa
+    spec:
+      containers:
+      - name: appa
+        image: de.icr.io/demo_ns/servicea:1
+        ports:
+        - containerPort: 8080
+
