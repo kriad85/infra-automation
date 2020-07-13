@@ -17,5 +17,10 @@ pipeline {
                 ibmcloud ks cluster config --cluster ${params.cluster_name}
             }
         }
+        stage('Deploy App') {
+            steps {
+                node app/src/start.js
+            }
+        }
     }
 }
