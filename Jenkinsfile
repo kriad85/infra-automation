@@ -22,9 +22,8 @@ pipeline {
                 cd app/src;
                 node start.js
                 cd ..
-                for filename in deployment/output/*; do
-                   kubectl apply -f $filename
-                done
+                chmod +x deploy.sh
+                ./deploy.sh
             }
         }
     }
