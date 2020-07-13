@@ -20,8 +20,8 @@ pipeline {
         stage('Deploy App') {
             steps {
                 cd app/src;
-                node start.js;
-                cd ..;
+                node start.js
+                cd ..
                 for filename in deployment/output/*; do
                    kubectl apply -f $filename
                 done
