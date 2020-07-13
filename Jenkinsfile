@@ -8,8 +8,8 @@ pipeline {
             steps {
                 cd infra
                 terraform init
-                terraform plan -var="cluster_name=${params.cluster_name}"
-                terraform apply -auto-approve -var="cluster_name=${params.cluster_name}"
+                terraform plan -var="cluster_name=mycluster"
+                terraform apply -auto-approve -var="cluster_name=mycluster"
             }
         }
         stage('Configure Cluster') {
