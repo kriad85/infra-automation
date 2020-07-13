@@ -6,11 +6,11 @@ pipeline {
     stages {
         stage('Generate Infra') {
             steps {
-                sh 'cd infra'
-                sh 'ls'
-                sh 'terraform init'
-                sh 'terraform plan -var="cluster_name=${params.cluster_name}"'
-                sh 'terraform apply -auto-approve -var="cluster_name=${params.cluster_name}"'
+                dir("infra") {
+                   sh 'terraform init'
+                   sh 'terraform plan -var="cluster_name=${params.cluster_name}"'
+                   sh 'terraform apply -auto-approve -var="cluster_name=${params.cluster_name}"'
+                }
             }
         }
         stage('Configure Cluster') {
