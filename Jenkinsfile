@@ -24,6 +24,7 @@ pipeline {
         stage('Deploy App') {
             steps {
                 dir("app") {
+                   sh 'npm install'
                    sh 'node src/start.js'
                    sh 'chmod +x deploy.sh'
                    sh './deploy.sh'
